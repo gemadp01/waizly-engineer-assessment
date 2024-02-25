@@ -1,0 +1,20 @@
+1. SELECT * FROM employees;
+2. SELECT COUNT(*) AS manager_count FROM employees WHERE job_title = 'Manager';
+3. SELECT name, salary FROM employees WHERE department IN ('Sales', 'Marketing');
+
+4. 
+SELECT AVG(salary) AS avg_salary 
+FROM employees 
+WHERE joined_date >= DATE_SUB(CURRENT_DATE(), INTERVAL 5 YEAR);
+
+5. 
+SELECT e.name, SUM(sd.sales) AS total_sales
+FROM employees e
+JOIN sales_data sd ON e.employee_id = sd.employee_id
+GROUP BY e.name
+ORDER BY total_sales DESC
+LIMIT 5;
+
+6.
+7.
+8.

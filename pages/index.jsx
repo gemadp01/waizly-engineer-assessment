@@ -7,11 +7,15 @@ import { useEffect, useState } from 'react';
 export default function Home() {
   // const tasks = await getAllTodos();
   const [tasks, setTasks] = useState([]);
+  const [timeZone, setTimeZone] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const todosData = await getAllTodos();
+        const timeZoneData = await fetch('http://worldtimeapi.org/api/timezone/Asia/Jakarta');
+        const data = await timeZoneData.json();
+        setTimeZone(data.timezone);
         setTasks(todosData);
       } catch (error) {
         console.error('Error fetching todos:', error);
@@ -31,6 +35,7 @@ export default function Home() {
       <main className="max-w-4xl mx-auto mt-4">
         <div className="text-center my-5 flex flex-col gap-4">
           <h1 className="text-2xl font-bold">Todo List App</h1>
+          <h1>{timeZone}</h1>
           <AddTask />
         </div>
         <TodoList tasks={tasks} />

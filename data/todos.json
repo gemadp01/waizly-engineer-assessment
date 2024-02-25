@@ -1,35 +1,6 @@
 {
   "tasks": [
     {
-      "id": "1",
-      "text": "buy milk with some orange"
-    },
-    {
-      "id": "2",
-      "text": "help my friend to find a girl"
-    },
-    {
-      "id": "ec50",
-      "todo": {
-        "id": "3",
-        "text": "run run run"
-      }
-    },
-    {
-      "id": "0d47",
-      "todo": {
-        "id": "3",
-        "text": "run"
-      }
-    },
-    {
-      "id": "de01",
-      "todo": {
-        "id": "3",
-        "text": "test"
-      }
-    },
-    {
       "id": "4",
       "text": "besok hari senin, semangat baru"
     },
@@ -42,8 +13,12 @@
       "text": "learn english"
     },
     {
-      "id": "2PHB3WcKKAbVq9EOUyt_n",
-      "text": "test"
+      "id": "9261aaff-3813-49f3-bcef-efc389f47b9f",
+      "text": "next todo list"
+    },
+    {
+      "id": "70902b49-185c-4523-b383-e17cf433518e",
+      "text": "learning everything "
     }
   ]
 }

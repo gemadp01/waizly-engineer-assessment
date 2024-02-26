@@ -1,24 +1,14 @@
 {
   "tasks": [
     {
-      "id": "4",
-      "text": "besok hari senin, semangat baru"
+      "id": "372cbb20-7de5-4abd-96d7-9943bb7481fb",
+      "text": "learn english",
+      "completed": false
     },
     {
-      "id": "5",
-      "text": "learn programming"
-    },
-    {
-      "id": "6",
-      "text": "learn english"
-    },
-    {
-      "id": "9261aaff-3813-49f3-bcef-efc389f47b9f",
-      "text": "next todo list"
-    },
-    {
-      "id": "70902b49-185c-4523-b383-e17cf433518e",
-      "text": "learning everything "
+      "id": "371522b9-75a2-4926-9248-75947c99e8de",
+      "text": "learn programming",
+      "completed": false
     }
   ]
 }

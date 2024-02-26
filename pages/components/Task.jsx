@@ -21,6 +21,7 @@ const Task = (props) => {
     await editTodo({
       id: task.id,
       text: taskToEdit,
+      completed: false,
     });
 
     setTaskToEdit('');
@@ -34,32 +35,19 @@ const Task = (props) => {
     router.refresh();
   };
 
-  // const handleTaskCompleted = () => {
-  //   const currentTask = document.querySelector('.task');
-  //   const checkboxButton = document.querySelector('.checkbox-btn');
-  //   const editButton = document.querySelector('.edit-btn');
-
-  //   if (isCompleted) {
-  //     currentTask.classList.remove('line-through');
-  //     checkboxButton.classList.remove('text-green-500');
-  //     editButton.classList.remove('text-blue-500');
-  //     setIsCompleted(false);
-  //   } else {
-  //     currentTask.classList.add('line-through');
-  //     checkboxButton.classList.add('text-green-500');
-  //     editButton.classList.add('text-blue-500');
-  //     setIsCompleted(true);
-  //   }
-  // };
+  const handleTaskCompleted = () => {
+    setIsCompleted(true);
+    task.completed = true;
+  };
 
   return (
     <tr key={task.id}>
-      <td className="w-full task">{task.text}</td>
+      <td className={`w-full ${isCompleted ? 'line-through' : ''}`}>{task.text}</td>
       {/* <td>{task.completed ? 'Yes' : 'No'}</td> */}
       <td className="flex gap-5">
-        {/* <IoCheckboxOutline onClick={handleTaskCompleted} cursor={'pointer'} className="text-green-500 checkbox-btn" size={27} /> */}
+        <IoCheckboxOutline onClick={handleTaskCompleted} cursor={'pointer'} className={`text-green-500 ${isCompleted ? 'hidden' : ''}`} size={27} />
 
-        <FiEdit onClick={() => setOpenModalEdit(true)} cursor="pointer" className="text-blue-500 edit-btn" size={25} />
+        <FiEdit onClick={() => setOpenModalEdit(true)} cursor="pointer" className={`text-blue-500 ${isCompleted ? 'hidden' : ''}`} size={25} />
 
         <Modal modalOpen={openModalEdit} setModalOpen={setOpenModalEdit}>
           <form onSubmit={handleSubmitEditTodo}>

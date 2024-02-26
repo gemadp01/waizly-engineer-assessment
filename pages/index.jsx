@@ -13,16 +13,31 @@ export default function Home() {
     const fetchData = async () => {
       try {
         const todosData = await getAllTodos();
-        const timeZoneData = await fetch('http://worldtimeapi.org/api/timezone/Asia/Jakarta');
-        const data = await timeZoneData.json();
-        setTimeZone(data.timezone);
         setTasks(todosData);
       } catch (error) {
         console.error('Error fetching todos:', error);
       }
     };
 
-    fetchData(); // Memanggil fungsi fetchData saat komponen dimuat
+    const fetchTimeZone = async () => {
+      try {
+        const timeZoneData = await fetch('http://worldtimeapi.org/api/timezone/Asia/Jakarta');
+        const data = await timeZoneData.json();
+        const time = data.datetime.split('T')[1].split('.')[0];
+        setTimeZone(time);
+      } catch (error) {
+        console.error('Error fetching time zone:', error);
+      }
+    };
+
+    fetchData();
+    fetchTimeZone();
+
+    const interval = setInterval(() => {
+      fetchTimeZone();
+    }, 1000);
+
+    return () => clearInterval(interval);
   }, []);
   return (
     <>

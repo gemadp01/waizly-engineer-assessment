@@ -3,11 +3,16 @@
     {
       "id": "372cbb20-7de5-4abd-96d7-9943bb7481fb",
       "text": "learn english",
-      "completed": false
+      "completed": true
     },
     {
       "id": "371522b9-75a2-4926-9248-75947c99e8de",
       "text": "learn programming",
+      "completed": true
+    },
+    {
+      "id": "380f835d-6ade-438f-9467-4c8bd5cac18c",
+      "text": "learn hiragana",
       "completed": false
     }
   ]

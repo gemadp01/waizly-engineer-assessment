@@ -35,3 +35,15 @@ export const deleteTodo = async (id) => {
     method: 'DELETE',
   });
 };
+
+export const markTodo = async (todo) => {
+  const res = await fetch(`${baseUrl}/${todo.id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(todo),
+  });
+  const markTodo = await res.json();
+  return markTodo;
+};

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { FiEdit, FiTrash2 } from 'react-icons/fi';
 import { IoCheckboxOutline } from 'react-icons/io5';
 import Modal from './Modal';
@@ -13,7 +13,6 @@ const Task = (props) => {
   const [openModalEdit, setOpenModalEdit] = useState(false);
   const [openModalDeleted, setOpenModalDeleted] = useState(false);
   const [taskToEdit, setTaskToEdit] = useState(task.text);
-  const [isCompleted, setIsCompleted] = useState(false);
 
   const handleSubmitEditTodo = async (e) => {
     e.preventDefault();
@@ -35,19 +34,22 @@ const Task = (props) => {
     router.refresh();
   };
 
-  const handleTaskCompleted = () => {
-    setIsCompleted(true);
-    task.completed = true;
+  const handleTaskCompleted = async () => {
+    await editTodo({
+      id: task.id,
+      text: task.text,
+      completed: (task.completed = true),
+    });
   };
 
   return (
     <tr key={task.id}>
-      <td className={`w-full ${isCompleted ? 'line-through' : ''}`}>{task.text}</td>
+      <td className={`w-full ${task.completed ? 'line-through' : ''}`}>{task.text}</td>
       {/* <td>{task.completed ? 'Yes' : 'No'}</td> */}
       <td className="flex gap-5">
-        <IoCheckboxOutline onClick={handleTaskCompleted} cursor={'pointer'} className={`text-green-500 ${isCompleted ? 'hidden' : ''}`} size={27} />
+        <IoCheckboxOutline onClick={handleTaskCompleted} cursor={'pointer'} className={`text-green-500 ${task.completed ? 'hidden' : ''}`} size={27} />
 
-        <FiEdit onClick={() => setOpenModalEdit(true)} cursor="pointer" className={`text-blue-500 ${isCompleted ? 'hidden' : ''}`} size={25} />
+        <FiEdit onClick={() => setOpenModalEdit(true)} cursor="pointer" className={`text-blue-500 ${task.completed ? 'hidden' : ''}`} size={25} />
 
         <Modal modalOpen={openModalEdit} setModalOpen={setOpenModalEdit}>
           <form onSubmit={handleSubmitEditTodo}>

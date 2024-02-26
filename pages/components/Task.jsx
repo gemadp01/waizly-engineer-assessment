@@ -45,7 +45,7 @@ const Task = (props) => {
   return (
     <tr key={task.id}>
       <td className={`w-full ${task.completed ? 'line-through' : ''}`}>{task.text}</td>
-      {/* <td>{task.completed ? 'Yes' : 'No'}</td> */}
+
       <td className="flex gap-5">
         <IoCheckboxOutline onClick={handleTaskCompleted} cursor={'pointer'} className={`text-green-500 ${task.completed ? 'hidden' : ''}`} size={27} />
 

@@ -13,6 +13,11 @@
     {
       "id": "380f835d-6ade-438f-9467-4c8bd5cac18c",
       "text": "learn hiragana",
+      "completed": true
+    },
+    {
+      "id": "fa5a22ad-7653-4dc2-88e2-7c2a5f4694be",
+      "text": "learn katakana",
       "completed": false
     }
   ]

@@ -47,3 +47,9 @@ export const markTodo = async (todo) => {
   const markTodo = await res.json();
   return markTodo;
 };
+
+export const searchTaskByName = async (taskName) => {
+  const res = await fetch(`${baseUrl}?text=${taskName}`);
+  const todos = await res.json();
+  return todos;
+};
